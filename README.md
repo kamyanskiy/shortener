@@ -20,3 +20,11 @@ It also possible to make **GET** request:
 ```commandline
 GET http://localhost/?url=https://kamyanskiy.github.io/
 ``` 
+
+
+P.S. Q: Why I tried to that when in the world are +100500 sample apps like that ? 
+     A: I don't know :-) Probably because of bad bad weather today.
+     
+     Running app is here **http://kamyanskiy.fvds.ru/** - use it without any payments, 
+     it's free ;-) 
+     
