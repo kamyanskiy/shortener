@@ -24,7 +24,7 @@ services:
       - REDIS_HOST=redis
       - REDIS_DB_URL=redis://redis:6379/0
       - DEBUG=0
-      - HASHIDS_SALT=trololoqwerty
+      - HASHIDS_SALT=${HASHIDS_SALT:-some_hash_default}
       - SHORTENER_URL=kamyanskiy.fvds.ru
     ports:
       - "8888:8888"
