@@ -51,6 +51,8 @@ class MainHandler(tornado.web.RequestHandler):
             except:
                 return self.send_error(404, reason="Url not found.")
             self.application.db.delete(decoded_id[0])
+            if not url.startswith("http"):
+                url = "http://" + url
             return self.redirect(url)
 
         try:
