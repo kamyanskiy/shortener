@@ -33,8 +33,6 @@ services:
       - DEBUG=0
       - HASHIDS_SALT=${HASHIDS_SALT:-some_hash_default}
       - SHORTENER_URL=kamyanskiy.fvds.ru
-    ports:
-      - "8888:8888"
 volumes:
   redis_data:
   certs:
