@@ -8,7 +8,8 @@ services:
       - "443:443"
 
     volumes:
-      - ./assets/nginx/:/etc/nginx/conf.d/
+      - ./assets/nginx/conf:/etc/nginx/conf.d/
+      - ./assets/nginx/certs:/etc/nginx/certs/
       - certs:/etc/letsencrypt
       - certs-data:/data/letsencrypt
 
