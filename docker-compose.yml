@@ -2,19 +2,26 @@ version: '3.2'
 services:
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
       - "80:80"
+      - "443:443"
+
     volumes:
-      - ./assets/nginx/:/etc/nginx/conf.d/
+      - ./assets/nginx/conf:/etc/nginx/conf.d/
+      - ./assets/nginx/certs:/etc/nginx/certs/
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+
     depends_on:
       - shortener
 
   redis:
     image: redis:alpine
-    ports:
-      - 6379:6379
+
     volumes:
       - redis_data:/data
+
   shortener:
     build:
       context: .
@@ -30,3 +37,5 @@ services:
       - "8888:8888"
 volumes:
   redis_data:
+  certs:
+  certs-data:

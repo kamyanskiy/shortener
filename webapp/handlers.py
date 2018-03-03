@@ -52,7 +52,7 @@ class MainHandler(tornado.web.RequestHandler):
                 return self.send_error(404, reason="Url not found.")
             self.application.db.delete(decoded_id[0])
             if not url.startswith("http"):
-                url = "http://" + url
+                url = "https://" + url
             return self.redirect(url)
 
         try:
@@ -70,7 +70,7 @@ class MainHandler(tornado.web.RequestHandler):
         logger.debug(f"{args} {kwargs} {encoded} id: {key}")
         decoded = self.application.hasher.decode(encoded)
         logger.debug(f"Decoded: {decoded}")
-        self.write(f"<a href='http://{conf.SHORTENER_URL}/{encoded}'>http://{conf.SHORTENER_URL}/{encoded}</a>")
+        self.write(f"<a href='https://{conf.SHORTENER_URL}/{encoded}'>https://{conf.SHORTENER_URL}/{encoded}</a>")
 
     async def show_form(self):
         return self.write("""
