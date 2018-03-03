@@ -4,17 +4,22 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
+      - "443:443"
+
     volumes:
       - ./assets/nginx/:/etc/nginx/conf.d/
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+
     depends_on:
       - shortener
 
   redis:
     image: redis:alpine
-    ports:
-      - 6379:6379
+
     volumes:
       - redis_data:/data
+
   shortener:
     build:
       context: .
