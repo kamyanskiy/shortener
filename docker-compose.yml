@@ -35,3 +35,5 @@ services:
       - "8888:8888"
 volumes:
   redis_data:
+  certs:
+  certs-data:
